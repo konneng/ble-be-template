@@ -21,4 +21,4 @@ app.include_router(tags.router, prefix="/tags")
 
 @app.get("/")
 def read_root():
-    return {"status": "BLE Tracker backend running with JWT"}
+    return {"status": "BLE Tracker backend with full auth"}
