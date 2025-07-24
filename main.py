@@ -1,10 +1,9 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from database import engine, Base
+from database import Base, engine
 from routers import users, tags
 
-# Crea le tabelle nel database
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
@@ -22,4 +21,4 @@ app.include_router(tags.router, prefix="/tags")
 
 @app.get("/")
 def read_root():
-    return {"status": "BLE Tracker backend running with DB"}
+    return {"status": "BLE Tracker backend running with JWT"}
